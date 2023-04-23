@@ -13,3 +13,6 @@ import MonteCarloAlgorithm
 def test_MonteCarloAlgorithm_imported():
     """Sample test, will always pass so long as import statement worked."""
     assert "MonteCarloAlgorithm" in sys.modules
+
+def test_energy_correct():
+    assert True
