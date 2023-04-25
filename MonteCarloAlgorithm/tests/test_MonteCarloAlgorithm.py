@@ -15,4 +15,4 @@ def test_MonteCarloAlgorithm_imported():
     assert "MonteCarloAlgorithm" in sys.modules
 
 def test_energy_correct():
-    assert True
+    test = MonteCarloAlgorithm.Bitstring([1,1,1])

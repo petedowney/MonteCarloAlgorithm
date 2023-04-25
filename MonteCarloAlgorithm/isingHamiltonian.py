@@ -1,9 +1,8 @@
 import copy
 import math
-
+import random
 import numpy as np;
 import bitstring as Bitstring
-import random
 class IsingHamiltonian:
 
     """

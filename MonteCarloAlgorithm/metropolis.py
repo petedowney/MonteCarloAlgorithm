@@ -2,8 +2,6 @@
 
 import isingHamiltonian as IsingHamiltonian
 import numpy as np
-import networkx;
-import matplotlib.pyplot as plt
 
 def metropolis_montecarlo(hamiltonian : IsingHamiltonian, config, temperature=1, calc_sweep=1000, pre_calc_sweep=100):
 
