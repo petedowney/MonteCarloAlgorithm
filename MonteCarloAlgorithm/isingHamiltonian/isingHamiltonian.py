@@ -46,7 +46,7 @@ class IsingHamiltonian:
 
         orgEnergy = self.energy(config);
 
-        for sweep in range(len(config)):
+        for sweep in random.sample(list(range(len(config))), len(config)):
             delta_energy, potential_new_config, potential_new_energy = \
                 self.energy_change(copy.deepcopy(config), sweep, old_energy=orgEnergy)
             if IsingHamiltonian.make_change(delta_energy, temperature):
@@ -89,10 +89,7 @@ class IsingHamiltonian:
 
     @staticmethod
     def make_change(energy_change, temperature):
-        return energy_change < 0 or (np.exp(-energy_change / temperature) > random.random())
-
-
-
+        return energy_change <= 0 or (np.exp(-energy_change / temperature) > random.random())
 
 
 

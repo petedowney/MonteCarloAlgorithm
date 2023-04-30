@@ -1,6 +1,5 @@
 import math
 import numpy as np
-
 class BitString:
     """
     Simple class to implement a string of bits

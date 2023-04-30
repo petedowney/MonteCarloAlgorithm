@@ -1,9 +1,6 @@
-
-
-import isingHamiltonian as IsingHamiltonian
 import numpy as np
-
-def metropolis_montecarlo(hamiltonian : IsingHamiltonian, config, temperature=1, calc_sweep=1000, pre_calc_sweep=100):
+import MonteCarloAlgorithm.isingHamiltonian.isingHamiltonian
+def metropolis_montecarlo(hamiltonian, config, temperature=1, calc_sweep=1000, pre_calc_sweep=100):
 
     for x in range(pre_calc_sweep):
         config = hamiltonian.metropolis_sweep(config, temperature)
@@ -36,3 +33,11 @@ def metropolis_montecarlo(hamiltonian : IsingHamiltonian, config, temperature=1,
 
     return average_energy_samples, average_energy_samples_squared, \
         average_magnetization_samples, average_magnetization_samples_squared
+
+def metropolis_to_end_values(average_energy_samples, average_energy_samples_squared, \
+        average_magnetization_samples, average_magnetization_samples_squared, temperature=1.0):
+
+    hc = (average_energy_samples_squared[-1] - average_energy_samples[-1]**2) / (temperature**2)
+    ms = (average_magnetization_samples_squared[-1] - average_magnetization_samples[-1]**2) / (temperature)
+
+    return average_energy_samples[-1], average_magnetization_samples[-1], hc, ms
