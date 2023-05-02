@@ -14,11 +14,6 @@ dependencies:
   - pytest-cov
   - codecov
 
-#idk man
-  - numpy
-  - networkx
-  - math
-  - random
 
     # Pip-only installs
   #- pip:
