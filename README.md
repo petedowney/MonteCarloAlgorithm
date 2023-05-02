@@ -1,8 +1,8 @@
 MonteCarlo
 ==============================
 [//]: # (Badges)
-[![GitHub Actions Build Status](https://github.com/REPLACE_WITH_OWNER_ACCOUNT/MonteCarloAlgorithm/workflows/CI/badge.svg)](https://github.com/REPLACE_WITH_OWNER_ACCOUNT/MonteCarloAlgorithm/actions?query=workflow%3ACI)
-[![codecov](https://codecov.io/gh/REPLACE_WITH_OWNER_ACCOUNT/MonteCarlo/branch/main/graph/badge.svg)](https://codecov.io/gh/REPLACE_WITH_OWNER_ACCOUNT/MonteCarlo/branch/main)
+[![GitHub Actions Build Status](https://github.com/petedowney/MonteCarloAlgorithm/workflows/CI/badge.svg)](https://github.com/petedowney/MonteCarloAlgorithm/actions?query=workflow%3ACI)
+[![codecov](https://codecov.io/gh/petedowney/MonteCarlo/branch/main/graph/badge.svg)](https://codecov.io/gh/petedowney/MonteCarlo/branch/main)
 
 
 solves the max cut problem via the monte carlo algorithm
