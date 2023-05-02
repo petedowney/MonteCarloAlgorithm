@@ -3,7 +3,7 @@ Empty init file in case you choose a package besides PyTest such as Nose which m
 """
 import sys
 
-#import MonteCarloAlgorithm.bitstring.bitString as Bitstring
+#import MonteCarloAlgorithm.bitString.bitString as Bitstring
 #import MonteCarloAlgorithm.metropolis.metropolis as Metropolis
 #import MonteCarloAlgorithm.isingHamiltonian.isingHamiltonian as IsingHamiltonian
 

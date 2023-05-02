@@ -1,6 +1,8 @@
 """solves the max cut problem via the monte carlo algorithm"""
 
 # Add imports here
-#from MonteCarloAlgorithm.bitstring.bitString import BitString
+#from MonteCarloAlgorithm.bitString.bitString import BitString
 #from MonteCarloAlgorithm.metropolis.metropolis import *
 #from ._version import __version__
+
+from MonteCarloAlgorithm import metropolis, isingHamiltonian, bitString
