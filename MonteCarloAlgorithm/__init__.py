@@ -5,4 +5,6 @@
 #from MonteCarloAlgorithm.metropolis.metropolis import *
 #from ._version import __version__
 
-from MonteCarloAlgorithm import metropolis, isingHamiltonian, bitString
+from MonteCarloAlgorithm.isingHamiltonian.isingHamiltonian import IsingHamiltonian
+from MonteCarloAlgorithm.bitString.bitString import BitString
+from MonteCarloAlgorithm.metropolis.metropolis import Metropolis

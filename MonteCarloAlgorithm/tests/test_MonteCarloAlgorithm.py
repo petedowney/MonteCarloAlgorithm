@@ -8,33 +8,30 @@ import sys
 import networkx as nx
 import numpy as np
 
-import MonteCarloAlgorithm as ma
+import MonteCarloAlgorithm as mca
 def test_MonteCarloAlgorithm_imported():
     """Sample test, will always pass so long as import statement worked."""
     assert "MonteCarloAlgorithm" in sys.modules
 
 def test_energy_correct():
 
-    hello = ma.bitString.BitString([0, 1, 1])
-
-
     graph = build_1d_graph(6, 1)
     hamiltonian = get_IsingHamiltonian(graph, mus=[.0 for i in range(6)])
 
-    test = ma.bitString.BitString([0, 1, 0, 1, 0, 1])
+    test = mca.BitString([0, 1, 0, 1, 0, 1])
     energy = hamiltonian.energy(test)
     assert(energy == -6)
 
-    test = ma.bitString.BitString([0, 1, 1, 1, 1, 1])
+    test = mca.BitString([0, 1, 1, 1, 1, 1])
     energy = hamiltonian.energy(test)
     assert (energy == 2)
 
     hamiltonian = get_IsingHamiltonian(graph, mus=[.1 for i in range(6)])
-    test = ma.bitString.BitString([0, 1, 0, 1, 0, 1])
+    test = mca.BitString([0, 1, 0, 1, 0, 1])
     energy = hamiltonian.energy(test)
     assert (energy == -6)
 
-    test = ma.bitString.BitString([0, 1, 1, 1, 1, 1])
+    test = mca.BitString([0, 1, 1, 1, 1, 1])
     energy = hamiltonian.energy(test)
     assert (energy == 2.4)
 
@@ -42,7 +39,7 @@ def test_average_calculation():
 
     graph = build_1d_graph(6, 1)
     hamiltonian = get_IsingHamiltonian(graph, mus=[.0 for i in range(6)])
-    test = ma.bitString.BitString([0, 1, 0, 1, 0, 1])
+    test = mca.BitString([0, 1, 0, 1, 0, 1])
 
     e, m, hc, ms, = hamiltonian.compute_average_values(test, 1.0)
 
@@ -60,7 +57,7 @@ def test_average_calculation():
 
     graph = build_1d_graph(8, 1)
     hamiltonian = get_IsingHamiltonian(graph, mus=[.1 for i in range(8)])
-    test = ma.bitString.BitString([0, 1, 1, 1, 0, 1, 0, 0])
+    test = mca.BitString([0, 1, 1, 1, 0, 1, 0, 0])
 
     e, m, hc, ms, = hamiltonian.compute_average_values(test, 2.0)
 
@@ -74,12 +71,12 @@ def test_average_calculation():
 def test_metropolis_sweep():
     graph = build_1d_graph(8, 1)
     hamiltonian = get_IsingHamiltonian(graph, mus=[0.0 for i in range(8)])
-    test = ma.bitString.BitString([0, 1, 1, 0, 1, 1, 0, 0])
+    test = mca.BitString([0, 1, 1, 0, 1, 1, 0, 0])
 
     e, m, hc, ms, = hamiltonian.compute_average_values(test, 2.0)
-    el, ml, hcl, msl = ma.metropolis.Metropolis.metropolis_montecarlo(hamiltonian, test,
-                                                        temperature=2.0, calc_sweep=20000, pre_calc_sweep=5000)
-    e2, m2, hc2, ms2 = ma.metropolis.Metropolis.metropolis_to_end_values(el, ml, hcl, msl, 2.0)
+    el, ml, hcl, msl = mca.Metropolis.metropolis_montecarlo(hamiltonian, test,
+                                                                       temperature=2.0, calc_sweep=20000, pre_calc_sweep=5000)
+    e2, m2, hc2, ms2 = mca.Metropolis.metropolis_to_end_values(el, ml, hcl, msl, 2.0)
 
     assert(abs(e - e2) < .05)
     assert (abs(m - m2) < .05)
@@ -88,12 +85,12 @@ def test_metropolis_sweep():
 
     graph = build_1d_graph(8, 1)
     hamiltonian = get_IsingHamiltonian(graph, mus=[0.1 for i in range(8)])
-    test = ma.bitString.BitString([0, 1, 1, 0, 1, 1, 0, 0])
+    test = mca.BitString([0, 1, 1, 0, 1, 1, 0, 0])
 
     e, m, hc, ms, = hamiltonian.compute_average_values(test, 1.0)
-    el, ml, hcl, msl = ma.metropolis.Metropolis.metropolis_montecarlo(hamiltonian, test,
-                                                        temperature=1.0, calc_sweep=100000, pre_calc_sweep=5000)
-    e2, m2, hc2, ms2 = ma.metropolis.metropolis.Metropolis.metropolis_to_end_values(el, ml, hcl, msl, 1.0)
+    el, ml, hcl, msl = mca.Metropolis.metropolis_montecarlo(hamiltonian, test,
+                                                                       temperature=1.0, calc_sweep=100000, pre_calc_sweep=5000)
+    e2, m2, hc2, ms2 = mca.Metropolis.metropolis_to_end_values(el, ml, hcl, msl, 1.0)
 
     assert (abs(e - e2) < .05)
     assert (abs(m - m2) < .05)
@@ -128,4 +125,4 @@ def get_IsingHamiltonian(G, mus=None):
     for e in G.edges:
         J[e[0]].append((e[1], G.edges[e]['weight']))
         J[e[1]].append((e[0], G.edges[e]['weight']))
-    return ma.isingHamiltonian.IsingHamiltonian(J, mus)
+    return mca.IsingHamiltonian(J, mus)
