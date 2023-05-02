@@ -1,4 +1,10 @@
-from setuptools import setup
+import pathlib
+from setuptools import setup, find_packages
+
+INSTALL_REQUIRES = [
+      'numpy',
+      'networkx'
+]
 
 setup(
     name='MonteCarloAlgorithm',
@@ -9,5 +15,6 @@ setup(
     license='',
     author='peter',
     author_email='',
+    #install_requires=INSTALL_REQUIRES,
     description=''
 )
