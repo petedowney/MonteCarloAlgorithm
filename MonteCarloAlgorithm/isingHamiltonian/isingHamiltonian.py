@@ -2,7 +2,7 @@ import copy
 import math
 import random
 import numpy as np;
-import bitstring as Bitstring
+from MonteCarloAlgorithm.bitString.bitString import BitString
 class IsingHamiltonian:
 
     """
@@ -20,7 +20,7 @@ class IsingHamiltonian:
     calculates the energy of the system given the configuration
     config = a bit string
     """
-    def energy(self, config : Bitstring):
+    def energy(self, config : BitString):
         assert (len(config) == len(self.nodeConnections), "config length does not match")
 
         energy = np.dot(self.outsideAffect, 2*config.string-1)
@@ -36,7 +36,7 @@ class IsingHamiltonian:
     """
     calculates how energy
     """
-    def energy_change(self, config : Bitstring, flipped_index : int, old_energy=float('nan')):
+    def energy_change(self, config : BitString, flipped_index : int, old_energy=float('nan')):
 
         origin_energy = old_energy if not math.isnan(old_energy) else self.energy(config);
         config.flip(flipped_index);
@@ -55,7 +55,7 @@ class IsingHamiltonian:
 
         return config
 
-    def compute_average_values(self, config : Bitstring, temperature=1.0):
+    def compute_average_values(self, config : BitString, temperature=1.0):
         energy_sum = 0.0
         energy_squared_sum = 0.0
         magnetization_sum = 0.0
