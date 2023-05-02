@@ -10,3 +10,8 @@ dependencies:
     # Pip-only installs
   #- pip:
 
+
+  - pip: numpy
+  - pip: networkx
+  - pip: math
+  - pip: random
