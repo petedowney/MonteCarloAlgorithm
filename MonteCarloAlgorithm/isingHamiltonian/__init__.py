@@ -1,1 +1,0 @@
-from .isingHamiltonian import IsingHamiltonian

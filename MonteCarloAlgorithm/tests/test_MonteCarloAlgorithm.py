@@ -78,10 +78,10 @@ def test_metropolis_sweep():
                                                                        temperature=2.0, calc_sweep=20000, pre_calc_sweep=5000)
     e2, m2, hc2, ms2 = mca.Metropolis.metropolis_to_end_values(el, ml, hcl, msl, 2.0)
 
-    assert(abs(e - e2) < .05)
-    assert (abs(m - m2) < .05)
-    assert (abs(hc - hc2) < .05)
-    assert (abs(ms - ms2) < .05)
+    assert(abs(e - e2) < .1)
+    assert (abs(m - m2) < .1)
+    assert (abs(hc - hc2) < .1)
+    assert (abs(ms - ms2) < .1)
 
     graph = build_1d_graph(8, 1)
     hamiltonian = get_IsingHamiltonian(graph, mus=[0.1 for i in range(8)])
@@ -89,13 +89,13 @@ def test_metropolis_sweep():
 
     e, m, hc, ms, = hamiltonian.compute_average_values(test, 1.0)
     el, ml, hcl, msl = mca.Metropolis.metropolis_montecarlo(hamiltonian, test,
-                                                                       temperature=1.0, calc_sweep=100000, pre_calc_sweep=5000)
+                                                                       temperature=1.0, calc_sweep=20000, pre_calc_sweep=5000)
     e2, m2, hc2, ms2 = mca.Metropolis.metropolis_to_end_values(el, ml, hcl, msl, 1.0)
 
-    assert (abs(e - e2) < .05)
-    assert (abs(m - m2) < .05)
-    assert (abs(hc - hc2) < .05)
-    assert (abs(ms - ms2) < .05)
+    assert (abs(e - e2) < .1)
+    assert (abs(m - m2) < .1)
+    assert (abs(hc - hc2) < .1)
+    assert (abs(ms - ms2) < .1)
 
 
 

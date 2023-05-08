@@ -4,23 +4,23 @@ API Documentation
 .. autosummary::
    :toctree: autosummary
 	
-   MonteCarloAlgorithm.bitString.bitString
-   MonteCarloAlgorithm.isingHamiltonian.isingHamiltonian
-   MonteCarloAlgorithm.metropolis.metropolis
+   MonteCarloAlgorithm.BitString
+   MonteCarloAlgorithm.IsingHamiltonian
+   MonteCarloAlgorithm.Metropolis
 
 .. py:currentmodule:: MonteCarloAlgorithm
 
-.. autoclass:: bitstring.bitstring
+.. autoclass:: Bitstring
     :members:
     :special-members:
     :noindex:
 
-.. autoclass:: metropolis.metropolis
+.. autoclass:: Metropolis
     :members:
     :special-members:
     :noindex:
 
-.. autoclass:: isingHamiltonian.isingHamiltonian
+.. autoclass:: IsingHamiltonian
     :members:
     :special-members:
     :noindex:
