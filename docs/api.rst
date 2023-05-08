@@ -8,17 +8,19 @@ API Documentation
    MonteCarloAlgorithm.isingHamiltonian.isingHamiltonian
    MonteCarloAlgorithm.metropolis.metropolis
 
-.. autoclass:: MonteCarloAlgorithm.bitstring.Bitstring
+.. py:currentmodule:: MonteCarloAlgorithm
+
+.. autoclass:: bitstring.bitstring
     :members:
     :special-members:
     :noindex:
 
-.. autoclass:: MonteCarloAlgorithm.metropolis.metropolis.Metropolis
+.. autoclass:: metropolis.metropolis
     :members:
     :special-members:
     :noindex:
 
-.. autoclass:: MonteCarloAlgorithm.isingHamiltonian.isingHamiltonian.IsingHamiltonian
+.. autoclass:: isingHamiltonian.isingHamiltonian
     :members:
     :special-members:
     :noindex:
