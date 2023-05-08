@@ -4,8 +4,6 @@ API Documentation
 .. autosummary::
    :toctree: autosummary
 	
-   MonteCarloAlgorithm.Bitstring
-   MonteCarloAlgorithm.IsingHamiltonian
-   MonteCarloAlgortihm.Metropolis
-
-   MonteCarloAlgorithm.canvas
+   MonteCarloAlgorithm.bitstring.bitstring.Bitstring
+   MonteCarloAlgorithm.isingHamiltonian.isingHamiltonian.IsingHamiltonian
+   MonteCarloAlgorithm.metropolis.metropolis.Metropolis

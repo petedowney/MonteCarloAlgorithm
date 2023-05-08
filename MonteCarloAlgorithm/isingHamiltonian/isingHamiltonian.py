@@ -10,16 +10,28 @@ class IsingHamiltonian:
     outside affect = the affect of outside bias on nodal connections
     """
     def __init__(self, node_connections=[[()]], outside_affect=np.zeros(1)):
-
+        """
+        creates a hamiltonian
+        Parameters
+        ----------
+        node_connections how the nodes connect to each other
+        outside_affect any influence outside the hamiltonian
+        """
         assert(len(node_connections) == len(outside_affect))
         self.nodeConnections = node_connections
         self.outsideAffect = outside_affect
 
-    """
-    calculates the energy of the system given the configuration
-    config = a bit string
-    """
     def energy(self, config):
+        """
+        calculates the energy of the config
+        Parameters
+        ----------
+        config a bitstring
+
+        Returns
+        -------
+        the energy of the config
+        """
         assert len(config) == len(self.nodeConnections), "config length does not match"
 
         energy = np.dot(self.outsideAffect, 2*config.string-1)
@@ -32,17 +44,37 @@ class IsingHamiltonian:
 
         return energy
 
-    """
-    calculates how energy
-    """
     def energy_change(self, config, flipped_index : int, old_energy=float('nan')):
+        """
+        calculates delta energy given a bit flip
+        Parameters
+        ----------
+        config origin config
+        flipped_index index of proposed bit to flip
+        old_energy energy state of the current config (not required input)
 
+        Returns
+        delta energy
+        -------
+
+        """
         origin_energy = old_energy if not math.isnan(old_energy) else self.energy(config);
         config.flip(flipped_index);
         new_energy = self.energy(config)
         return new_energy - origin_energy, config, new_energy
     def metropolis_sweep(self, config, temperature=1.0):
 
+        """
+        runs a metropolis sweep on the bitstring
+        Parameters
+        ----------
+        config input config
+        temperature temperature
+
+        Returns
+        -------
+        changed config
+        """
         orgEnergy = self.energy(config);
 
         for sweep in random.sample(list(range(len(config))), len(config)):
@@ -55,6 +87,17 @@ class IsingHamiltonian:
         return config
 
     def compute_average_values(self, config, temperature=1.0):
+        """
+        compute the average energy of a hamiltonian
+        Parameters
+        ----------
+        config a bitstring does not really matter what is inputed
+        temperature temperature
+
+        Returns
+        -------
+        average energy, magnetization, heat capacity, and magnetic susceptibility values
+        """
         energy_sum = 0.0
         energy_squared_sum = 0.0
         magnetization_sum = 0.0
@@ -88,6 +131,17 @@ class IsingHamiltonian:
 
     @staticmethod
     def make_change(energy_change, temperature):
+        """
+        determines if a change to the bit string should be made
+        Parameters
+        ----------
+        energy_change how much energy a flip would save/cost
+        temperature temperature
+
+        Returns
+        -------
+        bool whether or not it should be flipped
+        """
         return energy_change <= 0 or (np.exp(-energy_change / temperature) > random.random())
 
 
