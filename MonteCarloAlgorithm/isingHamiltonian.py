@@ -4,6 +4,7 @@ import random
 import numpy as np;
 class IsingHamiltonian:
 
+    random.seed(3)
     """
     creates the ising hamiltonian
     node connections = the weights of the node connections
