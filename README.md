@@ -2,14 +2,10 @@ MonteCarlo
 ==============================
 [//]: # (Badges)
 [![GitHub Actions Build Status](https://github.com/petedowney/MonteCarloAlgorithm/workflows/CI/badge.svg)](https://github.com/petedowney/MonteCarloAlgorithm/actions?query=workflow%3ACI)
-
 [![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://montecarloalgorithm.readthedocs.io/en/latest/index.html)
+[![codecov](https://codecov.io/gh/petedowney/MonteCarloAlgorithm/branch/main/graph/badge.svg?token=CN3RRRZP4F)](https://codecov.io/gh/petedowney/MonteCarloAlgorithm)
 
-
-[![codecov](https://codecov.io/gh/petedowney/MonteCarlo/branch/main/graph/badge.svg)](https://codecov.io/gh/petedowney/MonteCarlo/branch/main)
-
-
-solves the max cut problem via the monte carlo algorithm
+Finds the average energy state of a quantum system
 
 ### Copyright
 
