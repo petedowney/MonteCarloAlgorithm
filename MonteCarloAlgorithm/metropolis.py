@@ -29,7 +29,7 @@ class Metropolis:
         magnetization_samples[0] = np.array([np.sum(2*config.string - 1)])
 
 
-        for x in range(calc_sweep):
+        for x in range(1, calc_sweep):
             config = hamiltonian.metropolis_sweep(config, temperature)
             energy_samples[x] = hamiltonian.energy(config)
             magnetization_samples[x] = np.sum(2*config.string - 1)
